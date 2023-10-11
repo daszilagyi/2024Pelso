@@ -29,7 +29,17 @@
         }else{return false;}
        }
 
-       // find user by email
+       // find user by ID
+       public function getUserById($id){
+        $this->db->query('select * from users where id= :id');
+        $this->db->bind(':id',$id);
+        $row = $this->db->single();
+
+        //check row exists
+        if($this->db->rowCount() > 0){return $row;}  
+       }
+       
+     // find user by email
        public function findUserByEmail($email){
         $this->db->query('select * from users where email= :email');
         $this->db->bind(':email',$email);
@@ -38,5 +48,6 @@
         //check row exists
         if($this->db->rowCount() > 0){return true;}else{return false;}  
        }
+
 
     }

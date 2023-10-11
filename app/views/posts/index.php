@@ -1,4 +1,5 @@
 <?php require APPROOT . '/views/inc/header.php' ; ?>
+<?php flash('post_message') ?>
 <div class="row mb-3">
     <div class="col-md-6">
         <h1>Posts</h1>
@@ -19,7 +20,7 @@
                                     written by <?= $post->name; ?> on <?= $post->post_created; ?>
                                 </div>
                                 <p class="card-text"> <?= $post->body; ?></p>
-                                <a href="<?= URLROOT . "/posts/show" .$post->postid ; ?>" class="btn btn-dark">More</a>
+                                <a href="<?= URLROOT . "/posts/show/" .$post->postId ; ?>" class="btn btn-dark">More</a>
                             </h4>
                 </div>        
 <?php endforeach; ?>
